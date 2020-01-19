@@ -1,0 +1,40 @@
+<?php
+$cityList = $this->getCityList();
+//echo '<pre>';print_R($cityList);die;
+?>
+<h1>Calculator</h1>
+<form action="http://82.129.197.84:8080/api/shippingCalculator" method="post">
+	<label>Source</label>
+	<select name="source" >
+		<?php
+			foreach($cityList as $city){
+				
+				?>
+				<option value="<?php echo $city['id']; ?>"><?php echo $city['city_en']; ?></option>
+				<?php
+			}
+		?>
+	</select>
+	<br><label>Destination</label>
+	<select name="destination" >
+		<?php
+			foreach($cityList as $city){
+				?>
+				<option value="<?php echo $city['id']; ?>"><?php echo $city['city_en']; ?></option>
+				<?php
+			}
+		?>
+	</select>
+	<br><label>Width</label>
+	<input type="text" name="width" id="" >
+	<br><label>Height</label>
+	<input type="text" name="height" id="" >
+	<br><label>Length</label>
+	<input type="text" name="length" id="" >
+	<br><label>Unit</label>
+	<input type="text" name="weight_unit" id="" value="1">
+	<br><label>Weight</label>
+	<input type="text" name="weight" id="" value="10"></br>
+	<input type="submit" value="submit" class="action primary">
+</form>
+<br><br/><br/><br/>
